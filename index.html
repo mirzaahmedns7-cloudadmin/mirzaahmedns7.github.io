@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirza Ahmed Ali Baig — Infrastructure Resume (Impact)</title>
+<meta name="description" content="Mirza Ahmed Ali Baig — IT Infrastructure, Azure and Microsoft 365 Administrator. Hyderabad. AZ-104 and M365 certified, 15 hands-on labs.">
+<meta name="theme-color" content="#070d18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#070d18; --bg2:#0a1220; --panel:#0e1727; --panel2:#121d31;
+  --line:#1d2a41; --line2:#28395a;
+  --gold:#f0b951; --gold-rgb:240,185,81;
+  --teal:#3ddad7; --teal-rgb:61,218,215;
+  --violet:#8b7bff; --violet-rgb:139,123,255;
+  --rose:#ff7a85;
+  --text:#e8edf7; --muted:#94a1ba; --faint:#5f6d87;
+  --head:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  --max:1180px; --r:18px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 82% -6%, rgba(var(--gold-rgb),.14), transparent 60%),
+    radial-gradient(760px 500px at 6% 18%, rgba(var(--teal-rgb),.10), transparent 60%),
+    radial-gradient(1000px 700px at 50% 116%, rgba(var(--violet-rgb),.12), transparent 62%)}
+::selection{background:rgba(var(--gold-rgb),.32)}
+a{color:inherit} svg{display:block}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:300;
+  background:linear-gradient(90deg,var(--gold),var(--teal),var(--violet))}
+
+/* ============ NAV ============ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,13,24,.8);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);transition:box-shadow .3s,background .3s}
+.topbar.stuck{box-shadow:0 24px 46px -36px #000;background:rgba(7,13,24,.96)}
+.tb-in{max-width:var(--max);margin:0 auto;padding:.85rem clamp(1rem,4vw,2rem);
+  display:flex;align-items:center;justify-content:space-between;gap:1.2rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;flex-shrink:0}
+.brand-mk{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(145deg,var(--gold),#c98d1f);color:#1a1204;font-family:var(--head);
+  font-weight:800;font-size:.76rem;box-shadow:0 10px 22px -12px rgba(var(--gold-rgb),.9)}
+.brand b{display:block;font-family:var(--head);font-size:.92rem;font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.25}
+.brand span{display:block;font-family:var(--mono);font-size:.6rem;color:var(--faint);letter-spacing:.16em;text-transform:uppercase}
+.menu{display:flex;gap:.15rem;list-style:none}
+.menu a{display:block;padding:.5rem .8rem;font-size:.85rem;font-weight:500;color:var(--muted);
+  text-decoration:none;border-radius:9px;transition:.22s;position:relative}
+.menu a::after{content:'';position:absolute;left:.8rem;right:.8rem;bottom:.32rem;height:1.5px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));transform:scaleX(0);transform-origin:left;
+  transition:transform .32s cubic-bezier(.16,1,.3,1)}
+.menu a:hover,.menu a.active{color:#fff;background:rgba(255,255,255,.05)}
+.menu a.active::after,.menu a:hover::after{transform:scaleX(1)}
+.tb-actions{display:flex;gap:.55rem;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--head);
+  font-size:.84rem;font-weight:700;padding:.66rem 1.15rem;border-radius:11px;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;transition:.25s;white-space:nowrap}
+.btn-gold{background:linear-gradient(145deg,var(--gold),#d99a26);color:#1a1204}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 34px -16px rgba(var(--gold-rgb),.95);filter:brightness(1.05)}
+.btn-ghost{border-color:var(--line2);color:var(--text);background:rgba(255,255,255,.04)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.burger{display:none;width:40px;height:40px;border:1px solid var(--line2);background:rgba(255,255,255,.05);
+  border-radius:11px;cursor:pointer;place-items:center}
+.burger i,.burger i::before,.burger i::after{display:block;width:15px;height:1.6px;background:#fff;position:relative;transition:.28s}
+.burger i::before,.burger i::after{content:'';position:absolute;left:0}
+.burger i::before{top:-5px}.burger i::after{top:5px}
+.burger.open i{background:transparent}
+.burger.open i::before{top:0;transform:rotate(45deg)}
+.burger.open i::after{top:0;transform:rotate(-45deg)}
+
+/* ============ LAYOUT ============ */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+section{margin-bottom:clamp(3rem,7vw,5rem)}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem}
+.eyebrow::before{content:'';width:26px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+.sec-title{font-family:var(--head);font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;letter-spacing:-.04em;
+  line-height:1.06;margin-bottom:.7rem}
+.sec-sub{color:var(--muted);max-width:66ch;margin-bottom:2.2rem;font-size:1rem}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+  padding:7.5rem 0 4rem}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0;transition:opacity 1.4s ease}
+#net.ready{opacity:.85}
+.hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 100%, var(--bg) 12%, transparent 70%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.avail{display:inline-flex;align-items:center;gap:.6rem;padding:.42rem .95rem;border-radius:999px;
+  background:rgba(var(--teal-rgb),.08);border:1px solid rgba(var(--teal-rgb),.35);
+  font-size:.76rem;font-weight:600;color:var(--teal);letter-spacing:.05em;margin-bottom:1.5rem;font-family:var(--mono)}
+.avail i{width:7px;height:7px;border-radius:50%;background:var(--teal);
+  box-shadow:0 0 0 0 rgba(var(--teal-rgb),.7);animation:ping 2.2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(var(--teal-rgb),0)}100%{box-shadow:0 0 0 0 rgba(var(--teal-rgb),0)}}
+h1{font-family:var(--head);font-size:clamp(2.6rem,7vw,4.6rem);font-weight:800;letter-spacing:-.05em;
+  line-height:.98;margin-bottom:1rem}
+h1 .grad{display:block;background:linear-gradient(100deg,var(--gold) 5%,#ffe0a8 45%,var(--teal) 105%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-role{font-family:var(--head);font-size:clamp(1rem,2.3vw,1.3rem);font-weight:600;color:#cfd8e8;
+  margin-bottom:1.1rem;min-height:1.5em;letter-spacing:-.015em}
+.caret{display:inline-block;width:2px;height:.95em;background:var(--gold);vertical-align:-2px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-bio{color:var(--muted);max-width:56ch;font-size:1.02rem;margin-bottom:1.7rem}
+.hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.role-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font-family:var(--head);font-size:.76rem;font-weight:700;padding:.32rem .78rem;border-radius:9px;
+  background:rgba(255,255,255,.05);border:1px solid var(--line2);color:#c8d2e4}
+.chip.g{background:rgba(var(--gold-rgb),.12);border-color:rgba(var(--gold-rgb),.4);color:#f6d189}
+.chip.t{background:rgba(var(--teal-rgb),.1);border-color:rgba(var(--teal-rgb),.35);color:#8cece9}
+.chip.v{background:rgba(var(--violet-rgb),.12);border-color:rgba(var(--violet-rgb),.4);color:#c0b5ff}
+
+/* hero visual: ring gauges */
+.gauges{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.gauge{background:linear-gradient(160deg,rgba(18,29,49,.9),rgba(10,18,32,.7));border:1px solid var(--line);
+  border-radius:var(--r);padding:1.2rem 1rem;text-align:center;position:relative;overflow:hidden;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:.35s}
+.gauge:hover{transform:translateY(-6px);border-color:rgba(var(--gold-rgb),.5);box-shadow:0 30px 50px -34px rgba(var(--gold-rgb),.6)}
+.gauge::before{content:'';position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:26px 26px}
+.gauge > *{position:relative;z-index:1}
+.ring{position:relative;width:112px;height:112px;margin:0 auto .8rem}
+.ring svg{width:112px;height:112px;transform:rotate(-90deg)}
+.ring .track{stroke:rgba(255,255,255,.07);fill:none;stroke-width:9}
+.ring .val{fill:none;stroke-width:9;stroke-linecap:round;stroke-dasharray:301.6;
+  stroke-dashoffset:301.6;transition:stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1)}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--head);
+  font-size:1.75rem;font-weight:800;letter-spacing:-.04em;color:#fff}
+.ring .num small{font-size:.8rem;font-weight:600;color:var(--muted);margin-left:2px}
+.gauge h4{font-family:var(--head);font-size:.9rem;font-weight:700;letter-spacing:-.01em}
+.gauge p{font-size:.76rem;color:var(--faint);margin-top:.2rem;font-family:var(--mono);letter-spacing:.06em}
+.g-gold .val{stroke:var(--gold)} .g-gold .num{color:#f6d189}
+.g-teal .val{stroke:var(--teal)} .g-teal .num{color:#8cece9}
+.g-violet .val{stroke:var(--violet)} .g-violet .num{color:#c0b5ff}
+.g-rose .val{stroke:var(--rose)} .g-rose .num{color:#ffb3ba}
+
+/* ============ TICKER ============ */
+.ticker{border-block:1px solid var(--line);background:rgba(255,255,255,.015);padding:.85rem 0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.tick-track{display:flex;gap:2.4rem;width:max-content;animation:slide 36s linear infinite}
+.ticker:hover .tick-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.tick-track span{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint);display:flex;align-items:center;gap:2.4rem;white-space:nowrap}
+.tick-track span::after{content:'';width:5px;height:5px;border-radius:50%;background:rgba(var(--gold-rgb),.6)}
+
+/* ============ EXPERIENCE TIMELINE ============ */
+.timeline{position:relative;padding-left:2.6rem}
+.timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;border-radius:2px;
+  background:linear-gradient(180deg,var(--gold),var(--teal) 45%,rgba(var(--violet-rgb),.3))}
+.tl{position:relative;margin-bottom:2.4rem}
+.tl:last-child{margin-bottom:0}
+.tl::before{content:'';position:absolute;left:-2.6rem;top:6px;width:18px;height:18px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--gold);box-shadow:0 0 0 5px rgba(var(--gold-rgb),.14),0 0 18px rgba(var(--gold-rgb),.5)}
+.tl::after{content:'';position:absolute;left:-2.05rem;top:11.5px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.tl-top{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin-bottom:.4rem}
+.tl-badge{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.3rem .7rem;border-radius:7px;background:rgba(var(--gold-rgb),.12);
+  border:1px solid rgba(var(--gold-rgb),.36);color:#f6d189}
+.tl h3{font-family:var(--head);font-size:clamp(1.15rem,2.6vw,1.5rem);font-weight:800;letter-spacing:-.03em}
+.tl .role{font-size:.9rem;color:var(--teal);font-weight:600;margin-bottom:1.1rem}
+.tl-card{background:linear-gradient(165deg,var(--panel),rgba(14,23,39,.45));border:1px solid var(--line);
+  border-radius:var(--r);padding:clamp(1.3rem,3vw,2rem);position:relative;overflow:hidden}
+.tl-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--gold),var(--teal))}
+.job{list-style:none;display:grid;gap:.8rem;counter-reset:b}
+.job li{position:relative;padding-left:2.55rem;font-size:.93rem;color:var(--muted);line-height:1.63;
+  counter-increment:b}
+.job li::before{content:counter(b,decimal-leading-zero);position:absolute;left:0;top:.1em;
+  font-family:var(--mono);font-size:.68rem;color:#0a1220;background:linear-gradient(145deg,var(--gold),#d99a26);
+  padding:.2rem .45rem;border-radius:6px;font-weight:600}
+.job li strong{color:var(--text);font-weight:600}
+.strip{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px dashed var(--line2)}
+.strip span{font-family:var(--mono);font-size:.67rem;padding:.26rem .6rem;border-radius:7px;
+  background:rgba(var(--teal-rgb),.07);border:1px solid rgba(var(--teal-rgb),.24);color:#7fe6e3}
+
+/* ============ LABS ============ */
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+.lab{background:linear-gradient(170deg,var(--panel),rgba(10,18,32,.6));border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;position:relative;
+  transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .3s,box-shadow .4s}
+.lab:hover{transform:translateY(-7px);border-color:rgba(var(--teal-rgb),.5);box-shadow:0 34px 56px -36px rgba(var(--teal-rgb),.6)}
+.lab-vis{height:118px;position:relative;display:grid;place-items:center;overflow:hidden;
+  background:radial-gradient(300px 150px at 50% 130%, rgba(var(--gold-rgb),.2), transparent 65%), #0a1120;
+  border-bottom:1px solid var(--line)}
+.lab-vis::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(var(--gold-rgb),.06) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--gold-rgb),.06) 1px,transparent 1px);
+  background-size:22px 22px}
+.lab-vis svg.dg{width:150px;height:86px;position:relative;z-index:1;fill:none;stroke:var(--gold);
+  stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.lab:hover .lab-vis svg.dg{transform:scale(1.09) rotate(-1deg)}
+.lab-vis .no{position:absolute;top:.7rem;left:.9rem;font-family:var(--mono);font-size:.63rem;
+  letter-spacing:.16em;color:var(--faint);z-index:2}
+.lab-vis .cat{position:absolute;top:.65rem;right:.8rem;font-family:var(--mono);font-size:.58rem;
+  padding:.18rem .5rem;border-radius:6px;letter-spacing:.08em;z-index:2;
+  background:rgba(var(--teal-rgb),.14);border:1px solid rgba(var(--teal-rgb),.4);color:#8cece9}
+.lab-body{padding:1.15rem 1.25rem 1.35rem}
+.lab-body h3{font-family:var(--head);font-size:1rem;font-weight:700;letter-spacing:-.02em;line-height:1.35;margin-bottom:.5rem}
+.lab-body p{font-size:.86rem;color:var(--muted);line-height:1.6}
+.lab-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.95rem}
+.lab-tags span{font-family:var(--mono);font-size:.62rem;padding:.2rem .5rem;border-radius:6px;
+  background:rgba(255,255,255,.04);border:1px solid var(--line2);color:#8d9ab3}
+
+/* ============ SKILLS (bar meters) ============ */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.1rem}
+.skill{background:linear-gradient(165deg,var(--panel),rgba(10,18,32,.5));border:1px solid var(--line);
+  border-radius:var(--r);padding:1.4rem 1.45rem;transition:.35s}
+.skill:hover{transform:translateY(-5px);border-color:rgba(var(--violet-rgb),.45);
+  box-shadow:0 30px 50px -36px rgba(var(--violet-rgb),.7)}
+.skill-hd{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem}
+.skill-ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;
+  background:rgba(var(--violet-rgb),.12);border:1px solid rgba(var(--violet-rgb),.35)}
+.skill-ic svg{width:18px;height:18px;stroke:#c0b5ff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.skill h4{font-family:var(--head);font-size:1rem;font-weight:700;letter-spacing:-.02em;flex:1}
+.skill .lvl{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+.meter{display:flex;gap:4px;margin-bottom:.9rem}
+.meter i{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.07);transition:.5s}
+.meter i.on{background:linear-gradient(90deg,var(--gold),var(--teal));box-shadow:0 0 12px -3px rgba(var(--gold-rgb),.8)}
+.skill p{font-size:.86rem;color:var(--muted);line-height:1.6}
+.tools{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.tools span{font-family:var(--mono);font-size:.63rem;padding:.22rem .55rem;border-radius:7px;
+  background:rgba(255,255,255,.04);border:1px solid var(--line2);color:#8d9ab3}
+
+/* ============ CERTS ============ */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.1rem}
+.cert{display:flex;gap:1rem;align-items:flex-start;background:linear-gradient(165deg,var(--panel),rgba(10,18,32,.5));
+  border:1px solid var(--line);border-radius:var(--r);padding:1.25rem 1.3rem;transition:.35s;position:relative;overflow:hidden}
+.cert::after{content:'';position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;
+  background:var(--gold);filter:blur(50px);opacity:.1;transition:.35s}
+.cert:hover{transform:translateY(-5px);border-color:rgba(var(--gold-rgb),.5)}
+.cert:hover::after{opacity:.2}
+.seal{width:46px;height:46px;flex-shrink:0;position:relative}
+.seal svg{width:46px;height:46px}
+.seal .shield{fill:url(#sealGrad);stroke:rgba(255,255,255,.25);stroke-width:1}
+.cert.dim .seal .shield{fill:url(#sealDim)}
+.cert b{display:block;font-family:var(--head);font-size:.95rem;font-weight:700;letter-spacing:-.015em;line-height:1.4}
+.cert .code{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--faint);margin-top:.3rem}
+.tagst{display:inline-flex;align-items:center;gap:.35rem;margin-top:.65rem;font-family:var(--head);
+  font-size:.65rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+  padding:.22rem .6rem;border-radius:6px;background:rgba(61,218,215,.12);
+  border:1px solid rgba(61,218,215,.4);color:#8cece9}
+.tagst i{width:5px;height:5px;border-radius:50%;background:var(--teal)}
+.tagst.road{background:rgba(var(--violet-rgb),.12);border-color:rgba(var(--violet-rgb),.4);color:#c0b5ff}
+.tagst.road i{background:var(--violet)}
+.tagst.rec{background:rgba(var(--gold-rgb),.12);border-color:rgba(var(--gold-rgb),.4);color:#f6d189}
+.tagst.rec i{background:var(--gold)}
+.cert.dim{opacity:.86}
+.cert.dim .tagst{background:rgba(255,255,255,.05);border-color:var(--line2);color:var(--faint)}
+.cert.dim .tagst i{background:var(--faint)}
+
+/* ============ TWO COLUMN: EDU + CHART ============ */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:1.1rem;align-items:stretch}
+.panel{background:linear-gradient(165deg,var(--panel),rgba(10,18,32,.5));border:1px solid var(--line);
+  border-radius:var(--r);padding:1.5rem 1.6rem}
+.panel h4{font-family:var(--head);font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
+.panel h4::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
+.edu-school{font-family:var(--head);font-size:1.15rem;font-weight:800;letter-spacing:-.03em}
+.edu-degree{font-size:.92rem;color:var(--muted);margin-top:.25rem}
+.edu-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.edu-meta span{font-family:var(--mono);font-size:.65rem;padding:.24rem .6rem;border-radius:7px;
+  background:rgba(var(--gold-rgb),.1);border:1px solid rgba(var(--gold-rgb),.3);color:#f6d189}
+/* column chart */
+.chart{display:flex;align-items:flex-end;gap:.7rem;height:172px;padding-top:.5rem}
+.col{flex:1;display:flex;flex-direction:column;align-items:center;gap:.5rem;height:100%;justify-content:flex-end}
+.col .bar{width:100%;max-width:44px;border-radius:8px 8px 4px 4px;position:relative;height:0;
+  background:linear-gradient(180deg,var(--teal),rgba(var(--teal-rgb),.25));
+  transition:height 1.2s cubic-bezier(.16,1,.3,1)}
+.col:nth-child(2n) .bar{background:linear-gradient(180deg,var(--gold),rgba(var(--gold-rgb),.25))}
+.col:nth-child(3n) .bar{background:linear-gradient(180deg,var(--violet),rgba(var(--violet-rgb),.25))}
+.col .bar::after{content:attr(data-v);position:absolute;top:-20px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.66rem;color:var(--text)}
+.col span{font-family:var(--mono);font-size:.58rem;color:var(--faint);letter-spacing:.06em;text-align:center;line-height:1.3}
+
+/* ============ CONTACT ============ */
+.cta{position:relative;overflow:hidden;border-radius:26px;padding:clamp(2.2rem,5vw,3.6rem);text-align:center;
+  background:
+    radial-gradient(600px 340px at 50% -30%, rgba(var(--gold-rgb),.25), transparent 65%),
+    linear-gradient(160deg,#101b2f,#080e1a);
+  border:1px solid var(--line2)}
+.cta::before{content:'';position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:46px 46px}
+.cta > *{position:relative;z-index:1}
+.cta .eyebrow{justify-content:center}
+.cta h2{font-family:var(--head);font-size:clamp(1.7rem,4.4vw,2.7rem);font-weight:800;letter-spacing:-.04em;
+  line-height:1.08;margin-bottom:.8rem}
+.cta p{color:var(--muted);max-width:58ch;margin:0 auto 1.9rem}
+.cta-btns{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.9rem}
+.cta-info{display:flex;justify-content:center;flex-wrap:wrap;gap:.7rem}
+.cta-info a,.cta-info span{display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.1rem;
+  border-radius:13px;background:rgba(255,255,255,.05);border:1px solid var(--line2);
+  font-size:.87rem;color:#ccd5e6;text-decoration:none;transition:.25s}
+.cta-info a:hover{background:rgba(255,255,255,.1);border-color:var(--gold);color:#fff;transform:translateY(-3px)}
+.cta-info svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.2rem}
+.foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem;color:var(--faint)}
+.foot .fl{display:flex;gap:1.1rem;flex-wrap:wrap}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--gold)}
+.to-top{position:fixed;right:20px;bottom:20px;z-index:150;width:46px;height:46px;border-radius:15px;
+  display:grid;place-items:center;background:var(--panel);border:1px solid var(--line2);color:var(--gold);
+  text-decoration:none;opacity:0;pointer-events:none;transform:translateY(12px);transition:.35s}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top:hover{border-color:var(--gold);transform:translateY(-4px)}
+.to-top svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .gauges{max-width:520px}
+  .duo{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .menu,.tb-actions .btn-ghost{display:none}
+  .burger{display:grid}
+  .topbar.menu-open{background:rgba(7,13,24,.98)}
+  .topbar.menu-open .tb-in{flex-wrap:wrap;padding-bottom:1.1rem}
+  .topbar.menu-open .menu{display:flex;order:3;flex-basis:100%;flex-direction:column;
+    gap:.1rem;margin-top:.75rem;padding-top:.5rem;border-top:1px solid var(--line)}
+  .topbar.menu-open .menu a{padding:.78rem .55rem;font-size:.97rem}
+  .topbar.menu-open .menu a::after{display:none}
+}
+@media (max-width:540px){
+  .gauges{grid-template-columns:1fr}
+  .job li{padding-left:0;padding-top:1.7rem}
+  .job li::before{top:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ============ PRINT ============ */
+@media print{
+  @page{margin:12mm}
+  html,body{background:#fff !important;color:#111 !important;font-size:10pt}
+  body::before,#net,.topbar,.progress,.to-top,.hero::after,.ticker{display:none !important}
+  .reveal{opacity:1 !important;transform:none !important}
+  .hero{min-height:auto;padding:0 0 14pt;border-bottom:2pt solid #0b1a2e}
+  .hero-grid{grid-template-columns:1fr}
+  h1{font-size:24pt;color:#0b1a2e !important}
+  h1 .grad{-webkit-text-fill-color:#0b1a2e;color:#0b1a2e !important;background:none !important}
+  .avail,.hero-actions{display:none}
+  .hero-role{color:#444 !important}
+  .chip{background:#fff !important;border-color:#ccc !important;color:#333 !important}
+  section{margin-bottom:14pt;page-break-inside:auto}
+  .sec-title{font-size:15pt;color:#0b1a2e !important}
+  .sec-sub{display:none}
+  .eyebrow{color:#8f5a20 !important}
+  .gauge,.tl-card,.lab,.skill,.cert,.panel,.cta{background:#fff !important;border:.75pt solid #d5d5d5 !important;box-shadow:none !important}
+  .gauges{grid-template-columns:repeat(4,1fr);gap:6pt}
+  .ring,.ring svg{width:74px !important;height:74px !important}
+  .ring .val{stroke:#8f5a20 !important}
+  .timeline{padding-left:16pt}
+  .timeline::before{background:#bbb !important}
+  .tl::before,.tl::after{display:none}
+  .lab-grid,.skill-grid,.cert-grid{grid-template-columns:repeat(2,1fr);gap:6pt}
+  .lab{page-break-inside:avoid}
+  .lab-vis{height:64pt}
+  .lab-vis svg.dg{height:56pt}
+  .duo{grid-template-columns:1fr 1fr}
+  .cta{border:1.5pt solid #0b1a2e !important;text-align:left;padding:12pt !important}
+  .cta::before{display:none}
+  .cta-btns{display:none}
+  .foot .fl{display:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sealGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0b951"/><stop offset="1" stop-color="#c98d1f"/>
+    </linearGradient>
+    <linearGradient id="sealDim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25334c"/><stop offset="1" stop-color="#182237"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="progress" id="progress"></div>
+
+<header class="topbar" id="topbar">
+  <div class="tb-in">
+    <a class="brand" href="#top">
+      <span class="brand-mk">MAB</span>
+      <span><b>Mirza Ahmed Ali Baig</b><span>Resume / 2026</span></span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certs">Certs</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="tb-actions">
+      <button class="btn btn-ghost" id="print1" type="button">Print / PDF</button>
+      <a class="btn btn-gold" href="Mirza_Ahmed_Ali_Baig_Resume.pdf" download>Download PDF</a>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="avail"><i></i> OPEN TO OPPORTUNITIES — HYDERABAD</div>
+        <h1>Mirza Ahmed<span class="grad">Ali Baig</span></h1>
+        <p class="hero-role"><span id="typed"></span><span class="caret"></span></p>
+        <p class="hero-bio">
+          IT Infrastructure, Azure and Microsoft 365 Administrator with one year of hands-on experience
+          running a complete virtual datacenter — from a bare Hyper-V host to a hybrid identity connected
+          to Microsoft Azure. 15 labs built, validated and documented personally.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#labs">View 15 labs</a>
+          <a class="btn btn-ghost" href="#experience">Experience</a>
+          <button class="btn btn-ghost" id="print2" type="button">Print / Save PDF</button>
+          <a class="btn btn-ghost" href="#contact">Contact</a>
+        </div>
+        <div class="role-chips">
+          <span class="chip g">IT Infrastructure Admin</span>
+          <span class="chip t">Azure Admin</span>
+          <span class="chip v">Microsoft 365 Admin</span>
+          <span class="chip g">AZ-104 Certified</span>
+        </div>
+      </div>
+
+      <div class="gauges reveal">
+        <div class="gauge g-gold">
+          <div class="ring">
+            <svg viewBox="0 0 112 112"><circle class="track" cx="56" cy="56" r="48"/>
+              <circle class="val" cx="56" cy="56" r="48" data-pct="95"/></svg>
+            <div class="num" data-count="15" data-suffix="+">0</div>
+          </div>
+          <h4>Hands-on labs</h4><p>ON-PREM / CLOUD</p>
+        </div>
+        <div class="gauge g-teal">
+          <div class="ring">
+            <svg viewBox="0 0 112 112"><circle class="track" cx="56" cy="56" r="48"/>
+              <circle class="val" cx="56" cy="56" r="48" data-pct="70"/></svg>
+            <div class="num" data-count="20" data-suffix="+">0</div>
+          </div>
+          <h4>VMs deployed</h4><p>HYPER-V + AZURE</p>
+        </div>
+        <div class="gauge g-violet">
+          <div class="ring">
+            <svg viewBox="0 0 112 112"><circle class="track" cx="56" cy="56" r="48"/>
+              <circle class="val" cx="56" cy="56" r="48" data-pct="55"/></svg>
+            <div class="num" data-count="2" data-suffix="">0</div>
+          </div>
+          <h4>Certs earned</h4><p>MICROSOFT</p>
+        </div>
+        <div class="gauge g-rose">
+          <div class="ring">
+            <svg viewBox="0 0 112 112"><circle class="track" cx="56" cy="56" r="48"/>
+              <circle class="val" cx="56" cy="56" r="48" data-pct="45"/></svg>
+            <div class="num" data-count="1" data-suffix=" yr">0</div>
+          </div>
+          <h4>Experience</h4><p>LAB ADMIN</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="tick-track">
+    <span>Hyper-V</span><span>Active Directory</span><span>Azure</span><span>Entra Connect</span>
+    <span>Failover Cluster</span><span>Exchange 2025</span><span>IIS</span><span>PowerShell</span>
+    <span>AVD</span><span>Site-to-Site VPN</span><span>Landing Zones</span><span>PowerShell</span>
+    <span>Hyper-V</span><span>Active Directory</span><span>Azure</span><span>Entra Connect</span>
+    <span>Failover Cluster</span><span>Exchange 2025</span><span>IIS</span><span>PowerShell</span>
+    <span>AVD</span><span>Site-to-Site VPN</span><span>Landing Zones</span><span>PowerShell</span>
+  </div>
+</div>
+
+<main class="wrap" style="padding-top:clamp(2.6rem,6vw,4rem)">
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <div class="eyebrow">01 — Work history</div>
+    <h2 class="sec-title">Experience</h2>
+    <p class="sec-sub">One deep engagement: an entire virtual datacenter taken from an empty host to a hybrid setup connected to Azure.</p>
+
+    <div class="timeline">
+      <div class="tl reveal">
+        <div class="tl-top">
+          <span class="tl-badge">1 Year</span>
+          <h3>HomelabCenter — Hyderabad</h3>
+        </div>
+        <div class="role">IT Infrastructure / Cloud Lab Administrator</div>
+        <div class="tl-card">
+          <ol class="job">
+            <li>Built a virtual datacenter on <strong>Hyper-V (Windows Server 2025)</strong>: 10+ VMs, virtual switches, VHDX disks, checkpoints and per-role resource allocation.</li>
+            <li>Deployed <strong>AD DS domain controller (HYD-ADDC-V-01)</strong>: new forest, OUs, users and groups, GPOs, DNS records, forwarders and Sites &amp; Services.</li>
+            <li>Operated core server roles: <strong>File Server</strong> (Share vs NTFS, GPO-mapped drives), <strong>IIS</strong> with public DNS and SSL, <strong>Exchange 2025 SE</strong> (mailboxes, MX/SPF, OWA over HTTPS).</li>
+            <li>Configured a <strong>two-node Hyper-V failover cluster</strong>: iSCSI shared storage, Cluster Validation, file-share quorum witness, CSV and zero-downtime live and quick migration.</li>
+            <li>Established <strong>site-to-site VPN</strong> (RRAS to Azure VNet Gateway) and proved it with cross-cloud ping plus an additional Azure DC (AZU-ADDS-V-01).</li>
+            <li>Implemented <strong>Entra Connect hybrid identity</strong>: OU and attribute filtering, Password Hash Sync, synced-user verification and SSO testing.</li>
+            <li>Delivered <strong>Azure workloads</strong>: landing zones with policy and RBAC, 2x IIS VMs behind a public load balancer with health probes and a failover test, and a web app with a private endpoint (public access disabled).</li>
+            <li>Protection and end-user computing: <strong>Recovery Services Vault</strong> backup and restore, <strong>AVD</strong> host pool (multi-session Windows 11, multi-user test) and an Azure file server failover cluster with cloud witness.</li>
+          </ol>
+          <div class="strip">
+            <span>Hyper-V</span><span>AD DS</span><span>GPO</span><span>DNS</span><span>IIS</span>
+            <span>Exchange 2025 SE</span><span>Failover Cluster</span><span>iSCSI</span>
+            <span>RRAS VPN</span><span>Entra Connect</span><span>Azure</span><span>AVD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LABS ================= -->
+  <section id="labs">
+    <div class="eyebrow">02 — Selected work</div>
+    <h2 class="sec-title">15 hands-on labs</h2>
+    <p class="sec-sub">On-prem to hybrid to Azure. Real server names, real validation results.</p>
+    <div class="lab-grid" id="labGrid"></div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="eyebrow">03 — Capabilities</div>
+    <h2 class="sec-title">Technical skills</h2>
+    <p class="sec-sub">Every line has been exercised in a running environment — not only read about.</p>
+    <div class="skill-grid" id="skillGrid"></div>
+  </section>
+
+  <!-- ================= CERTIFICATIONS ================= -->
+  <section id="certs">
+    <div class="eyebrow">04 — Credentials</div>
+    <h2 class="sec-title">Certifications</h2>
+    <p class="sec-sub">Two Microsoft certifications earned, with a defined roadmap beyond them.</p>
+    <div class="cert-grid">
+      <div class="cert reveal">
+        <span class="seal"><svg viewBox="0 0 46 46"><path class="shield" d="M23 3l16 6v12c0 10-7 17.5-16 21C14 38.5 7 31 7 21V9z"/><path d="m16 23 5 5 10-11" fill="none" stroke="#1a1204" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><b>Azure Administrator Associate</b><div class="code">AZ-104</div><span class="tagst"><i></i>Earned</span></div>
+      </div>
+      <div class="cert reveal">
+        <span class="seal"><svg viewBox="0 0 46 46"><path class="shield" d="M23 3l16 6v12c0 10-7 17.5-16 21C14 38.5 7 31 7 21V9z"/><path d="m16 23 5 5 10-11" fill="none" stroke="#1a1204" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><b>M365 Administrator</b><div class="code">MICROSOFT 365</div><span class="tagst"><i></i>Earned</span></div>
+      </div>
+      <div class="cert reveal">
+        <span class="seal"><svg viewBox="0 0 46 46"><path class="shield" d="M23 3l16 6v12c0 10-7 17.5-16 21C14 38.5 7 31 7 21V9z"/><path d="M23 15v16M15 23h16" fill="none" stroke="#f6d189" stroke-width="3" stroke-linecap="round"/></svg></span>
+        <div><b>Azure Fundamentals</b><div class="code">AZ-900</div><span class="tagst rec"><i></i>Recommended</span></div>
+      </div>
+      <div class="cert reveal">
+        <span class="seal"><svg viewBox="0 0 46 46"><path class="shield" d="M23 3l16 6v12c0 10-7 17.5-16 21C14 38.5 7 31 7 21V9z"/><path d="M14 29l7-7 5 5 6-8" fill="none" stroke="#c0b5ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><b>Solutions Architect</b><div class="code">AZ-305</div><span class="tagst road"><i></i>Roadmap</span></div>
+      </div>
+      <div class="cert reveal">
+        <span class="seal"><svg viewBox="0 0 46 46"><path class="shield" d="M23 3l16 6v12c0 10-7 17.5-16 21C14 38.5 7 31 7 21V9z"/><path d="M14 29l7-7 5 5 6-8" fill="none" stroke="#c0b5ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><b>Identity &amp; M365 Admin</b><div class="code">SC-300 / MS-102</div><span class="tagst road"><i></i>Roadmap</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION + CHART ================= -->
+  <section id="education">
+    <div class="eyebrow">05 — Background</div>
+    <h2 class="sec-title">Education &amp; delivery mix</h2>
+    <p class="sec-sub">Academic foundation on one side, and how the 15 labs distribute across the stack on the other.</p>
+    <div class="duo">
+      <div class="panel reveal">
+        <h4>Education</h4>
+        <div class="edu-school">Osmania University</div>
+        <div class="edu-degree">Bachelor of Business Administration (BBA)</div>
+        <div class="edu-meta">
+          <span>HYDERABAD, INDIA</span><span>UNDERGRADUATE</span>
+        </div>
+        <div style="margin-top:1.5rem;padding-top:1.3rem;border-top:1px dashed var(--line2)">
+          <div class="edu-school" style="font-size:1rem">Focus</div>
+          <div class="edu-degree" style="font-size:.88rem">IT Infrastructure, Azure &amp; Microsoft 365 Administration</div>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <h4>Lab distribution</h4>
+        <div class="chart" id="chart">
+          <div class="col"><div class="bar" data-h="54" data-v="6"></div><span>ON-PREM</span></div>
+          <div class="col"><div class="bar" data-h="36" data-v="2"></div><span>HYBRID</span></div>
+          <div class="col"><div class="bar" data-h="88" data-v="6"></div><span>AZURE</span></div>
+          <div class="col"><div class="bar" data-h="30" data-v="1"></div><span>IDENTITY</span></div>
+          <div class="col"><div class="bar" data-h="45" data-v="2"></div><span>MONITOR</span></div>
+        </div>
+        <p style="font-size:.78rem;color:var(--faint);margin-top:.9rem;font-family:var(--mono);letter-spacing:.06em">
+          6 ON-PREM / 2 HYBRID / 6 AZURE / 1 NEXT
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="cta reveal">
+      <div class="eyebrow">06 — Contact</div>
+      <h2>Need someone who already built the whole environment?</h2>
+      <p>Open to IT Infrastructure, Azure and Microsoft 365 Administrator roles — on-site in Hyderabad or remote. Typical reply within a day.</p>
+      <div class="cta-btns">
+        <a class="btn btn-gold" href="mailto:mirzaahmedns7@gmail.com">Send an email</a>
+        <button class="btn btn-ghost" id="print3" type="button">Print / Save PDF</button>
+        <a class="btn btn-ghost" href="Mirza_Ahmed_Ali_Baig_Resume.pdf" download>Download resume (PDF)</a>
+      </div>
+      <div class="cta-info">
+        <a href="mailto:mirzaahmedns7@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>mirzaahmedns7@gmail.com</a>
+        <a href="tel:+919100276373"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>+91 91002 76373</a>
+        <span><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Hyderabad, India</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><div class="foot">
+  <span>&copy; 2026 Mirza Ahmed Ali Baig</span>
+  <div class="fl"><a href="#experience">Experience</a><a href="#labs">Labs</a><a href="#skills">Skills</a><a href="#certs">Certs</a><a href="#contact">Contact</a></div>
+  <span>Impact edition</span>
+</div></div></footer>
+
+<a class="to-top" id="toTop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></a>
+
+<script>
+(function(){
+'use strict';
+var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- data ---------- */
+var DIAGRAMS = {
+  rack:'<rect x="8" y="14" width="34" height="58" rx="4"/><path d="M14 24h22M14 34h22M14 44h22M14 54h22"/><circle cx="37" cy="24" r="1.8" fill="currentColor" stroke="none"/><circle cx="37" cy="44" r="1.8" fill="currentColor" stroke="none"/><rect x="60" y="18" width="34" height="14" rx="4"/><rect x="60" y="40" width="34" height="14" rx="4"/><path d="M77 32v8M42 43h18M94 25h14M94 47h14"/>',
+  ad:'<rect x="48" y="8" width="44" height="16" rx="4"/><path d="M70 24v12M32 36h76M32 36v10M70 36v10M108 36v10"/><rect x="18" y="46" width="28" height="14" rx="3"/><rect x="56" y="46" width="28" height="14" rx="3"/><rect x="94" y="46" width="28" height="14" rx="3"/><circle cx="70" cy="16" r="3.5" fill="currentColor" stroke="none"/>',
+  file:'<rect x="10" y="16" width="46" height="52" rx="5"/><path d="M18 28h30M18 38h30M18 48h20"/><rect x="66" y="20" width="46" height="44" rx="5"/><path d="M78 34h22M78 44h22M78 54h14"/><path d="M56 42h10"/>',
+  web:'<rect x="8" y="16" width="104" height="52" rx="6"/><path d="M8 30h104"/><circle cx="18" cy="23" r="2.2" fill="currentColor" stroke="none"/><circle cx="27" cy="23" r="2.2" fill="currentColor" stroke="none"/><path d="M26 44l-8 7 8 7M54 44l8 7-8 7M46 40l-8 24"/><rect x="70" y="42" width="34" height="14" rx="3"/>',
+  mail:'<rect x="8" y="20" width="70" height="46" rx="6"/><path d="M8 28l35 24 35-24"/><circle cx="96" cy="34" r="12"/><path d="M96 26v8l6 4"/><path d="M84 60h34"/>',
+  cluster:'<rect x="6" y="14" width="44" height="30" rx="5"/><rect x="76" y="14" width="44" height="30" rx="5"/><path d="M50 29h26" stroke-dasharray="5 4"/><rect x="34" y="56" width="58" height="16" rx="4"/><path d="M28 44v12h6M98 44v12h-8"/><circle cx="16" cy="29" r="2" fill="currentColor" stroke="none"/><circle cx="86" cy="29" r="2" fill="currentColor" stroke="none"/>',
+  vpn:'<path d="M6 62V40l16-12 16 12v22z"/><path d="M16 62v-12h10v12"/><path d="M42 46h40" stroke-dasharray="6 5"/><path d="M42 40v12M82 40v12"/><path d="M84 48a11 11 0 0 1 3-21 14 14 0 0 1 27-2 10 10 0 0 1 5 23z"/><path d="M101 56v10M96 61l5 5 5-5"/>',
+  identity:'<circle cx="34" cy="30" r="14"/><path d="M14 66c0-11 9-18 20-18s20 7 20 18"/><rect x="72" y="16" width="44" height="34" rx="5"/><path d="M84 33l7 7 14-14"/><path d="M56 34h16" stroke-dasharray="5 4"/><path d="M84 60h32M84 68h20"/>',
+  cloud:'<path d="M34 62a13 13 0 0 1 3-25 17 17 0 0 1 32-3 13 13 0 0 1 6 28z"/><path d="M54 46v16M47 54l7 8 7-8"/><rect x="16" y="14" width="30" height="14" rx="4"/><rect x="80" y="14" width="30" height="14" rx="4"/><path d="M31 28v12M95 28v14"/>',
+  balance:'<rect x="6" y="18" width="44" height="34" rx="5"/><rect x="76" y="18" width="44" height="34" rx="5"/><path d="M50 35h26" stroke-dasharray="5 4"/><circle cx="63" cy="16" r="7"/><path d="M63 23v6"/><path d="M28 52v12h20M98 52v12H78"/><rect x="44" y="64" width="40" height="12" rx="3"/>',
+  paaS:'<rect x="8" y="18" width="52" height="20" rx="5"/><rect x="8" y="46" width="52" height="20" rx="5"/><path d="M60 28h16M60 56h16"/><rect x="80" y="20" width="34" height="44" rx="6"/><path d="M92 34h10M92 44h10M92 54h6"/>',
+  vault:'<rect x="14" y="12" width="70" height="56" rx="7"/><circle cx="44" cy="40" r="14"/><path d="M44 30v10l7 5"/><path d="M84 30h18M84 40h18M84 50h18"/><path d="M92 62h12"/>',
+  avd:'<rect x="8" y="14" width="72" height="46" rx="6"/><path d="M34 68h24M46 60v8"/><circle cx="44" cy="34" r="9"/><path d="M30 50c0-8 6-13 14-13s14 5 14 13"/><rect x="88" y="24" width="26" height="44" rx="5"/><path d="M94 34h14M94 44h14M94 54h14"/>',
+  storage:'<ellipse cx="60" cy="20" rx="40" ry="12"/><path d="M20 20v40c0 7 18 12 40 12s40-5 40-12V20"/><path d="M20 40c0 7 18 12 40 12s40-5 40-12"/><circle cx="40" cy="58" r="2.5" fill="currentColor" stroke="none"/><circle cx="80" cy="58" r="2.5" fill="currentColor" stroke="none"/>',
+  monitor:'<rect x="8" y="14" width="104" height="54" rx="6"/><path d="M20 54l14-16 12 10 16-22 14 18 14-8"/><circle cx="34" cy="38" r="2.5" fill="currentColor" stroke="none"/><circle cx="62" cy="26" r="2.5" fill="currentColor" stroke="none"/><path d="M8 62h104"/>'
+};
+var LABS = [
+ ['LAB 01','ON-PREM','rack','OS Installation &amp; Virtualization','Clean installs of Windows 11 and Windows Server 2025 from ISO, BIOS and boot settings, Desktop Experience vs Core, Hyper-V role, virtual switches, VM creation and checkpoints.','Hyper-V|Windows Server 2025|Checkpoints'],
+ ['LAB 02','ON-PREM','ad','Active Directory Domain Services','Forest and domain promotion, OUs, users, groups, GPO deployment for password policy and drive maps, DNS zones, forwarders and Sites &amp; Services replication.','AD DS|GPO|DNS'],
+ ['LAB 03','ON-PREM','file','File Server (HYD-FILE-V-01)','Domain join, FSRM, shared folders, the Share versus NTFS permission model, and GPO-mapped S: and P: drives delivered to end users.','File Server|FSRM|NTFS'],
+ ['LAB 04','ON-PREM','web','Web Server — IIS (HYD-WEBS-V-01)','Site and bindings, DNS A records, NAT plus public DNS publishing, a ZeroSSL certificate and HTTP to HTTPS redirection enforced.','IIS|SSL|Public DNS'],
+ ['LAB 05','ON-PREM','mail','Exchange Server 2025 SE (HYD-MAIL-V-01)','Prerequisites, mailbox role install and health check, mailboxes through EAC, MX / SPF / Autodiscover, plus SSL-secured OWA and SMTP.','Exchange 2025|OWA|MX / SPF'],
+ ['LAB 06','ON-PREM','cluster','Two-Node Hyper-V Failover Cluster','iSCSI target and LUNs, node domain join, Cluster Validation Wizard, file-share quorum witness, CSV and live plus quick migration.','Failover Cluster|iSCSI|CSV'],
+ ['LAB 07','HYBRID','vpn','S2S VPN — On-Prem to Azure (HYD-VPNR-V-01)','RRAS role, VNet, VNet peering, Virtual Network Gateway, Local Gateway, a shared-key S2S connection and cross-cloud validation.','RRAS|VNet Gateway|Peering'],
+ ['LAB 08','HYBRID','identity','Entra Connect Hybrid Identity','Express and custom install, OU and attribute filtering, Password Hash and Pass-through sync, with Entra Connect Health monitoring.','Entra Connect|PHS|Health'],
+ ['LAB 09','CLOUD','cloud','Management Groups &amp; Landing Zones','Tenant root group, workload versus platform landing zones, policy plus RBAC at management group scope for clean billing and compliance.','Landing Zones|Policy|RBAC'],
+ ['LAB 10','CLOUD','balance','High-Availability Web Tier','Two IIS Azure VMs behind a Standard Public Load Balancer — backend pool, HTTP and HTTPS rules, health probes and a simulated failover test.','Load Balancer|Probes|IIS'],
+ ['LAB 11','CLOUD','paaS','Azure Web App (PaaS)','App Service plan, private endpoint in the PrivateEndpoint subnet, private DNS validation, public access disabled, VNet outbound integration and TLS hostname.','App Service|Private Endpoint|TLS'],
+ ['LAB 12','CLOUD','vault','Azure VM Backup &amp; Restore','Recovery Services Vault, storage redundancy, daily and weekly retention, on-demand backup, alerts, plus restore as a new VM with IIS and login validation.','Recovery Vault|Retention|Restore'],
+ ['LAB 13','CLOUD','avd','Azure Virtual Desktop (AVD)','AVD VNet with DNS to AD, host pool, Windows 11 Enterprise multi-session with M365 Apps image, workspace, app group, RBAC and a multi-user session test.','AVD|Host Pool|FSLogix'],
+ ['LAB 14','CLOUD','storage','Azure File Server Failover Cluster','Two nodes (AZU-FSCL-V-01/02), Azure Shared Disk, cluster validation, Cloud Witness, Internal Load Balancer probe and a clustered SMB share with failover test.','Shared Disk|Cloud Witness|SMB'],
+ ['LAB 15','NEXT','monitor','Monitoring &amp; Next Steps','WSUS and Azure Update Manager, FSLogix profiles and scaling plans, Entra Connect sync-rule troubleshooting and Azure SQL basics (in progress).','WSUS|Update Manager|FSLogix']
+];
+var SKILLS = [
+ ['Cloud — Azure','STRONG','governance, networking and platform services from tenant scope down to private connectivity.','Management Groups|Landing Zones|Policies|RBAC|VMs|Load Balancer|App Service|Private Endpoint|Recovery Vault|AVD|Cloud Witness',5],
+ ['Server Roles &amp; HA','STRONG','the core Windows Server estate: identity, web, mail, files and the clustering that keeps it online.','Hyper-V|AD DS|DNS|GPO|File Server|FSRM|IIS|Exchange 2025|WSUS|Failover Cluster|iSCSI|CSV|Live Migration',5],
+ ['Networking','PROFICIENT','connecting sites securely and understanding what sits underneath the tunnels.','RRAS S2S VPN|VNet Gateway|VNet Peering|NAT|TCP/IP|VLANs|DHCP|DNS',4],
+ ['Identity / M365','PROFICIENT','extending the on-prem directory into the cloud with filtered sync and single sign-on.','Microsoft Entra ID|Entra Connect Sync|Password Hash Sync|SSO',4],
+ ['Operating Systems','STRONG','current and previous Windows Server generations in Desktop Experience and Core, plus daily Linux.','Server 2025|Server 2022|Desktop Experience|Core|Windows 11|Linux basics',5],
+ ['Tools &amp; Scripting','PROFICIENT','administration surfaces and the automation that makes repetitive work repeatable.','PowerShell|Server Manager|Entra Admin Center|Azure Portal|Azure CLI',4]
+];
+var ICONS = {
+ g:'<path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.2 11.2 3.9 3.9 0 0 0 7 19z"/>',
+ s:'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
+ n:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>',
+ i:'<path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+ o:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+ t:'<path d="m8 17-5-5 5-5M16 7l5 5-5 5M13 4l-2 16"/>'
+};
+var ICONKEY = ['g','s','n','i','o','t'];
+
+function el(h){var d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild;}
+
+/* labs */
+var lg=document.getElementById('labGrid');
+LABS.forEach(function(L,i){
+  var tags=L[5].split('|').map(function(t){return '<span>'+t+'</span>';}).join('');
+  lg.appendChild(el('<article class="lab reveal">'+
+    '<div class="lab-vis"><span class="no">'+L[0]+'</span><span class="cat">'+L[1]+'</span>'+
+    '<svg class="dg" viewBox="0 0 120 76" stroke="currentColor">'+DIAGRAMS[L[2]]+'</svg></div>'+
+    '<div class="lab-body"><h3>'+L[3]+'</h3><p>'+L[4]+'</p>'+
+    '<div class="lab-tags">'+tags+'</div></div></article>'));
+});
+
+/* skills */
+var sg=document.getElementById('skillGrid');
+SKILLS.forEach(function(S,i){
+  var meters='';for(var k=0;k<5;k++){meters+='<i class="'+(k<S[4]?'on':'')+'" style="transition-delay:'+(k*90)+'ms"></i>';}
+  var tools=S[3].split('|').map(function(t){return '<span>'+t+'</span>';}).join('');
+  sg.appendChild(el('<div class="skill reveal">'+
+    '<div class="skill-hd"><span class="skill-ic"><svg viewBox="0 0 24 24">'+ICONS[ICONKEY[i]]+'</svg></span>'+
+    '<h4>'+S[0]+'</h4><span class="lvl">'+S[1]+'</span></div>'+
+    '<div class="meter">'+meters+'</div><p>'+S[2]+'</p>'+
+    '<div class="tools">'+tools+'</div></div>'));
+});
+
+/* ---------- typed ---------- */
+var phrases=['IT Infrastructure Administrator','Azure &amp; Microsoft 365 Admin','Windows Server &amp; Hyper-V Engineer','Hybrid Identity Specialist'];
+var typed=document.getElementById('typed'),pi=0,ci=0,de=false;
+if(reduced){typed.textContent=phrases[0].replace(/&amp;/g,'&');}
+else (function tick(){
+  var cur=phrases[pi];
+  typed.innerHTML=cur.slice(0,ci);
+  if(!de&&ci<cur.length){ci++;setTimeout(tick,48);}
+  else if(!de){de=true;setTimeout(tick,1700);}
+  else if(ci>0){ci--;setTimeout(tick,22);}
+  else{de=false;pi=(pi+1)%phrases.length;setTimeout(tick,400);}
+})();
+
+/* ---------- hero network canvas ---------- */
+(function(){
+  var c=document.getElementById('net'); if(!c) return;
+  var ctx=c.getContext('2d'), w=0,h=0,dpr=devicePixelRatio||1, pts=[], rot=0;
+  function size(){
+    var r=c.parentElement.getBoundingClientRect();
+    w=c.width=Math.max(1,r.width*dpr); h=c.height=Math.max(1,r.height*dpr);
+    c.style.width=r.width+'px'; c.style.height=r.height+'px';
+    var n=Math.min(70, Math.round(r.width/22));
+    pts=[];
+    for(var i=0;i<n;i++){
+      pts.push({x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*0.00042,vy:(Math.random()-.5)*0.00042,r:Math.random()*1.6+.8});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i]; p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>1)p.vx*=-1; if(p.y<0||p.y>1)p.vy*=-1;
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j], dx=(p.x-q.x)*w, dy=(p.y-q.y)*h, d=Math.hypot(dx,dy);
+        if(d<130*dpr){
+          ctx.strokeStyle='rgba(240,185,81,'+(0.16*(1-d/(130*dpr)))+')';
+          ctx.lineWidth=.7*dpr;
+          ctx.beginPath();ctx.moveTo(p.x*w,p.y*h);ctx.lineTo(q.x*w,q.y*h);ctx.stroke();
+        }
+      }
+      ctx.fillStyle='rgba(61,218,215,.55)';
+      ctx.beginPath();ctx.arc(p.x*w,p.y*h,p.r*dpr,0,Math.PI*2);ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  size(); if(!reduced) draw(); else { ctx.clearRect(0,0,w,h); }
+  addEventListener('resize',size);
+  setTimeout(function(){c.classList.add('ready');},250);
+})();
+
+/* ---------- scroll driven reveal / counters / rings / bars / nav ---------- */
+var reveals=Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+var rings=Array.prototype.slice.call(document.querySelectorAll('.ring .val'));
+var nums=Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+var bars=Array.prototype.slice.call(document.querySelectorAll('.chart .bar'));
+var links={};document.querySelectorAll('#menu a').forEach(function(a){var h=a.getAttribute('href')||'';if(h[0]==='#')links[h.slice(1)]=a;});
+var secs=['experience','labs','skills','certs','education','contact'].map(function(id){return document.getElementById(id);}).filter(Boolean);
+var swept=false;
+
+function inView(el,bias){if(!el)return false;var r=el.getBoundingClientRect();
+  var vh=window.innerHeight||document.documentElement.clientHeight||0;
+  return r.top<vh-(bias||0)&&r.bottom>0;}
+function countUp(n){if(n.dataset.done)return;n.dataset.done='1';
+  var end=+n.dataset.count,suf=n.dataset.suffix||'',t0=performance.now(),dur=1300;
+  (function s(t){var k=Math.min(1,(t-t0)/dur);
+    n.textContent=Math.round(end*(1-Math.pow(1-k,3)))+suf;
+    if(k<1)requestAnimationFrame(s);})(t0);}
+function fillRing(c){if(c.dataset.done)return;c.dataset.done='1';
+  var pct=+c.dataset.pct||0, C=301.6;
+  c.style.strokeDashoffset=String(C-(C*pct/100));}
+function growBar(b){if(b.dataset.done)return;b.dataset.done='1';
+  setTimeout(function(){b.style.height=(b.dataset.h||40)+'%';},140);}
+function activeNav(){var mid=(window.innerHeight||0)*.35,cur=null;
+  secs.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)cur=s.id;});
+  for(var k in links)links[k].classList.toggle('active',k===cur);}
+
+function sweep(){
+  for(var i=reveals.length-1;i>=0;i--){if(inView(reveals[i],24)){reveals[i].classList.add('in');reveals.splice(i,1);}}
+  rings.forEach(function(c){if(inView(c,0))fillRing(c);});
+  nums.forEach(function(n){if(inView(n,0))countUp(n);});
+  bars.forEach(function(b){if(inView(b,0))growBar(b);});
+  activeNav(); swept=true;
+}
+var queued=false;
+function schedule(){if(queued)return;queued=true;
+  requestAnimationFrame(function(){queued=false;sweep();});}
+addEventListener('scroll',schedule,{passive:true});
+addEventListener('resize',schedule);
+addEventListener('load',schedule);
+schedule();
+setTimeout(function(){if(swept)return;
+  reveals.slice().forEach(function(n){n.classList.add('in');});
+  rings.forEach(fillRing);nums.forEach(countUp);bars.forEach(growBar);},2500);
+
+/* ---------- chrome ---------- */
+var bar=document.getElementById('progress'),tb=document.getElementById('topbar'),tt=document.getElementById('toTop');
+function onScroll(){var d=document.documentElement;
+  bar.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight||1)*100)+'%';
+  tb.classList.toggle('stuck',d.scrollTop>8);
+  tt.classList.toggle('show',d.scrollTop>640);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+var burger=document.getElementById('burger');
+burger.addEventListener('click',function(){
+  var o=tb.classList.toggle('menu-open');burger.classList.toggle('open',o);
+  burger.setAttribute('aria-expanded',o?'true':'false');});
+document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',function(){
+  tb.classList.remove('menu-open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+
+['print1','print2','print3'].forEach(function(id){var b=document.getElementById(id);
+  if(b)b.addEventListener('click',function(){window.print();});});
+})();
+</script>
+</body>
+</html>
